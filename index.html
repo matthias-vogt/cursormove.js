@@ -1,0 +1,88 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <title>cursormove.js demo</title>
+    <meta name="description" content="jQuery plugin to emit events when the mouse coordinates change">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .dot1,
+    .dot2 {
+        position: absolute;
+        border-radius: 50%;
+        height: 1em;
+        width: 1em;
+        top: -1em;
+        transform: translate(-50%, -50%);
+        background: red;
+        pointer-events: none;
+    }
+
+    .box {
+        margin-top: 8em;
+        border: solid .2em;
+        height: 15em;
+        width: 15em;
+        position: static;
+        overflow: auto;
+    }
+
+    .box:before {
+        content: "";
+        height: 1000px;
+        display: block;
+        background: url(https://placehold.it/80x80/555555);
+    }
+
+    .dot2 {
+        background: rgb(20, 80, 220);
+        height: .8em;
+        width: .8em;
+    }
+
+    body {
+        height: 1000px;
+        width: 1000px;
+        background: url(https://placehold.it/50x50/);
+        font-family: sans-serif;
+        margin: 2em;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>cursormove.js demo</h1>
+
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+
+    <div class="box"></div>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="cursormove.js"></script>
+    <script>
+    $(function() {
+
+        $(window).cursormove();
+
+        $(window).on("cursormove", function(e, d) {
+            $(".dot1").css({
+                left: e.pageX,
+                top: e.pageY
+            });
+        });
+
+        $(".box").cursormove();
+
+        $(".box").on("cursormove", function(e, d) {
+            $(".dot2").css({
+                left: e.pageX,
+                top: e.pageY
+            });
+        });
+
+    })
+    </script>
+</body>

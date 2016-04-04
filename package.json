@@ -1,0 +1,20 @@
+{
+  "name": "cursormove",
+  "description": "jQuery plugin to emit events when cursor coordinates change",
+  "version": "0.0.1",
+  "author": "Matthias Vogt",
+  "dependencies": {
+    "jquery": "*"
+  },
+  "homepage": "https://github.com/matthias-vogt/cursormove.js",
+  "keywords": [
+    "jquery",
+    "ui"
+  ],
+  "license": "ISC",
+  "main": "cursormove.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "mkdir vendor && cp node_modules/jquery/dist/jquery.min.js vendor"
+  }
+}
