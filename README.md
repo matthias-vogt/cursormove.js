@@ -3,7 +3,7 @@
 Emits events when mouse coordinates change.
 The difference to `mousemove` is that it also triggers on scroll.
 
-```
+```javascript
 $(window).cursormove();
 
 $(window).on("cursormove", function(e) {
